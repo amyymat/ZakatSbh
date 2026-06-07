@@ -1,0 +1,134 @@
+/* 1. TETAPAN ASAS & PEMBOLEH UBAH (:root) */
+:root {
+    /* Warna Tema Premium */
+    --primary-teal: #1abc9c;
+    --dark-blue: #154360;
+    --gold-accent: #f1c40f;
+    --bg-soft: #f4f7f6;
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+    
+    /* Tetapan Font */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-amiri: 'Amiri', serif;
+    
+    /* Bayang-bayang Lembut */
+    --shadow-heavy: 0 15px 35px rgba(0,0,0,0.1);
+    --shadow-light: 0 5px 15px rgba(0,0,0,0.05);
+    
+    /* Efek Smooth Global */
+    --transition-smooth: all 0.4s ease-in-out;
+}
+
+/* Reset Asas & Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: var(--bg-soft);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Tipografi Asas */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.teks-arab, .mathjax-formula {
+    font-family: var(--font-amiri);
+    font-size: 1.4rem;
+    line-height: 2;
+    direction: rtl;
+}
+
+.mathjax-formula {
+    direction: ltr; /* Formula dikekalkan kiri-ke-kanan */
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+
+/* ========================================================
+   2. NAVIGASI (HEADER)
+   ======================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Efek Kaca (Glassmorphism) */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-teal);
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+/* Kesan hover pada pautan menu */
+.nav-links a:hover {
+    color: var(--primary-teal);
+}
+
+
+/* ========================================================
+   3. BUTTONS (BUTANG) & INPUT FORM
+   ======================================================== */
+
+/* Reka bentuk Butang Asas berbentuk Pil */
+.btn, .btn-primary, .btn-secondary, button, .btn-premium {
+    display: inline-block;
+    padding: 0.8rem 2rem;
