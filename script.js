@@ -2,32 +2,39 @@
    script.js - KOD FUNGSI JAVASCRIPT UNTUK ZAKAT SABAH (S.O.H)
    ========================================================================= */
 
-// --- FUNGSI MODAL ---
+// --- 1. FUNGSI WINDOW MODAL (TUTORIAL & HAD KIFAYAH) ---
 function bukaModal(idModal) {
     const modal = document.getElementById(idModal);
-    if (modal) modal.classList.add('show');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; /* Menghalang skrol latar belakang apabila modal dibuka */
+    }
 }
 
 function tutupModal(idModal) {
     const modal = document.getElementById(idModal);
-    if (modal) modal.classList.remove('show');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; /* Mengembalikan fungsi skrol asal */
+    }
 }
 
-// Tutup modal jika klik di luar kawasan putih
+// Tutup modal secara automatik jika pengguna klik di luar kawasan putih modal
 window.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.classList.remove('show');
+        document.body.style.overflow = '';
     }
 });
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. MENU MUDAH ALIH (BURGER MENU FIX) ---
+    // --- 2. MENU MUDAH ALIH (BURGER MENU FIX) ---
     const navLinks = document.getElementById('nav-links');
     let mobileMenu = document.getElementById('mobile-menu');
     
-    // Bina butang burger dinamik
+    // Membina butang burger dinamik jika belum wujud
     if (!mobileMenu && navLinks) {
         mobileMenu = document.createElement('div');
         mobileMenu.id = 'mobile-menu';
@@ -46,14 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (mobileMenu && navLinks) {
-        // Buka/Tutup apabila ikon ditekan
+        // Buka/Tutup apabila ikon menu ditekan
         mobileMenu.addEventListener('click', (e) => {
-            e.stopPropagation(); // Halang event dari bubble up
+            e.stopPropagation();
             navLinks.classList.toggle('nav-active');
             mobileMenu.innerHTML = navLinks.classList.contains('nav-active') ? '✖' : '☰';
         });
 
-        // Tutup jika link menu ditekan
+        // Tutup menu jika mana-mana pautan menu ditekan
         const menuItems = navLinks.querySelectorAll('a');
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -62,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // PENAMBAHBAIKAN 4: Tutup menu jika pengguna klik tempat lain (luar menu)
+        // Tutup menu jika pengguna klik tempat lain di luar kawasan menu
         document.addEventListener('click', (e) => {
-            // Semak adakah menu sedang aktif, dan klik berlaku BUKAN di dalam navLinks
             if (navLinks.classList.contains('nav-active') && !navLinks.contains(e.target)) {
                 navLinks.classList.remove('nav-active');
                 mobileMenu.innerHTML = '☰';
@@ -73,22 +79,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 2. ANIMASI SCROLL ---
-    const elementsToAnimate = document.querySelectorAll('.card, .issue-item, .verdict-card, .formula-box, #kalkulator-form');
+    // --- 3. ANIMASI SMOOTH SCROLL KABUS KE JELAS (UP & DOWN) ---
+    // Sasaran elemen yang akan menerima impak animasi apabila di-skrol
+    const elementsToAnimate = document.querySelectorAll('.card, .issue-item, .verdict-card, .formula-box, #kalkulator-form, table, .team-container, .references-container');
+    
     elementsToAnimate.forEach(el => el.classList.add('scroll-animate'));
 
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Apabila elemen masuk ke skrin, buang kabus (menjadi jelas)
                 entry.target.classList.add('terlihat');
+            } else {
+                // Apabila elemen keluar dari skrin (skrol ke atas/bawah semula), kembalikan kesan kabus
+                entry.target.classList.remove('terlihat');
             }
         });
-    }, { threshold: 0.15 });
+    }, { 
+        threshold: 0.10, /* Animasi bermula apabila 10% bahagian elemen mula kelihatan */
+        rootMargin: "0px 0px -50px 0px" /* Memberi sedikit ruang baki di bawah skrin untuk impak visual yang lebih kemas */
+    });
 
     elementsToAnimate.forEach(el => scrollObserver.observe(el));
 
 
-    // --- 3. SMOOTH SCROLLING NAVIGASI ---
+    // --- 4. SMOOTH SCROLLING NAVIGASI INTERN ---
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -105,19 +120,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 4. LOGIK KALKULATOR ZAKAT ---
+    // --- 5. LOGIK KALKULATOR ZAKAT ---
     const formKalkulator = document.getElementById('kalkulator-form');
     
     if (formKalkulator) {
         formKalkulator.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Total Pendapatan Tahunan (Input telah diubah ke format tahunan)
+            // Total Pendapatan Tahunan
             const pendapatanTahunan = parseFloat(document.getElementById('pendapatan-bulanan')?.value || 0);
             const gajiSampingan = parseFloat(document.getElementById('pendapatan-sampingan')?.value || 0);
             const totalPendapatan = pendapatanTahunan + gajiSampingan;
             
-            // Total Tolakan
+            // Total Tolakan (Had Kifayah)
             const tolakanDiri = parseFloat(document.getElementById('diri-sendiri')?.value || 0);
             const tolakanIsteri = parseFloat(document.getElementById('isteri')?.value || 0);
             const tolakanAnak = parseFloat(document.getElementById('anak')?.value || 0);
