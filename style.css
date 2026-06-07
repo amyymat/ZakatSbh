@@ -34,36 +34,65 @@ h1, h2, h3, h4, h5, h6 { color: var(--dark-blue); font-weight: 700; }
 .mathjax-formula { direction: ltr; text-align: center; font-size: 1.3rem; color: var(--primary-teal); }
 
 /* =========================================================================
-   2. HEADER & NAV - VERSI LOGO BULAT OPTIMUM
+  2. HEADER & NAV - VERSI NORMAL TEKS UTAMA
    ========================================================================= */
 header {
-    position: fixed; top: 0; left: 0; width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-light); z-index: 1000;
-}
-nav { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; max-width: 1200px; margin: 0 auto; }
-
-/* Menyusun logo dan teks secara bersebelahan (horizontal) */
-.logo-container { display: flex; align-items: center; gap: 12px; }
-
-/* Membentuk imej menjadi bulat sempurna tanpa merosakkan perkadaran asal */
-.logo-bulat {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary-teal);
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
 }
 
-.logo-text { display: flex; flex-direction: column; }
-.site-name { font-size: 1.5rem; font-weight: 700; color: var(--primary-teal); letter-spacing: 1px; line-height: 1.2; }
-.tagline { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-.nav-links { list-style: none; display: flex; gap: 2rem; }
-.nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; transition: var(--transition-smooth); }
-.nav-links a:hover { color: var(--primary-teal); }
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Menyusun nama & tagline ke bawah */
+    justify-content: center;
+}
 
+.site-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-teal);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--primary-teal);
+}
 /* =========================================================================
    3. LAYOUT ASAS SEKSYEN
    ========================================================================= */
@@ -290,13 +319,14 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
 .footer-copyright { color: #bdc3c7; font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 /* =========================================================================
-   11. RESPONSIVE / MUDAH ALIH (FIX MUTAKHIR - ANTI OVERFLOW & BURGER FIXED)
+   11. RESPONSIVE / MUDAH ALIH (VERSI MASTER-FIX NORMAL NAV)
    ========================================================================= */
 @media (max-width: 1024px) {
     .cards-container, .verdict-container, .team-container { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
+    /* ANTI-DRAG: Mengunci paparan pelayar web telefon daripada lari ke kanan */
     body, html {
         overflow-x: hidden !important;
         width: 100% !important;
@@ -314,14 +344,17 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
         width: 100% !important; 
         padding: 0.8rem 15px !important;
         box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     } 
 
-    /* Sembunyikan menu teks asal */
+    /* Menyembunyikan menu desktop asal */
     nav ul.nav-links:not(.nav-active) {
         display: none !important;
     }
     
-    /* PAKSA MENU BURGER MUNCUL KEMAS */
+    /* FIX MENU BURGER: Sentiasa muncul teguh sebagai kotak klik di penjuru kanan */
     #mobile-menu {
         display: block !important;
         visibility: visible !important;
@@ -331,44 +364,51 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
         transform: translateY(-50%) !important;
         z-index: 1010 !important;
         cursor: pointer !important;
+        
+        /* Gaya butang burger minimalis yang kemas */
         background: #ffffff !important;
         padding: 6px 10px !important;
         border-radius: 6px !important;
         border: 1px solid #23485E !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
     }
 
-    /* Memastikan ikon ☰ sentiasa kelihatan seandainya tulisan dalam JS lambat dimuatkan */
+    /* Memaksa simbol ☰ keluar walaupun js sedang lambat loading */
     #mobile-menu::before {
         content: "☰" !important;
         color: #23485E !important;
-        font-size: 1.4rem !important;
+        font-size: 1.3rem !important;
         font-weight: bold !important;
         display: inline-block !important;
     }
 
-    .cards-container, .verdict-container, .team-container { grid-template-columns: 1fr !important; }
+    /* Penyelarasan susunan grid kandungan bawah */
+    .cards-container, .verdict-container, .team-container { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
     #kalkulator-form { padding: 1.5rem !important; }
-    .hero-content h1 { font-size: 2.5rem !important; }
+    .hero-content h1 { font-size: 2.2rem !important; }
     .flex-title-button { flex-direction: column !important; }
     
-    /* MENU LACI (DRAWER) */
+    /* MENU LACI (DRAWER) YANG MELUNCUR DARI KANAN KETIKA DIKLIK */
     .nav-links {
         display: flex !important;
         position: fixed !important; 
-        top: 65px !important; 
+        top: 60px !important; 
         right: 0 !important; 
         width: 250px !important; 
-        height: calc(100vh - 65px) !important;
+        height: calc(100vh - 60px) !important;
         background-color: #ffffff !important; 
         flex-direction: column !important; 
         justify-content: flex-start !important; 
         padding-top: 2rem !important;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important; 
+        box-shadow: -6px 0 15px rgba(0,0,0,0.08) !important; 
         z-index: 1009 !important;
+        
+        /* Sistem sorok laci */
         transform: translateX(100%) !important;
         transition: transform 0.3s ease-in-out !important;
     }
 
+    /* Apabila laci menu dibuka aktif */
     .nav-links.nav-active { 
         transform: translateX(0) !important;
     }
@@ -378,7 +418,7 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
 }
 
 @media (max-width: 480px) {
-    .site-name { font-size: 1.2rem !important; }
-    .logo-bulat { width: 38px; height: 38px; } /* Lebih kecil sedikit pada skrin mikro */
-    .hero-content h1 { font-size: 2rem !important; }
+    .site-name { font-size: 1.15rem !important; } /* Saiz teks yang optimum untuk elak melanggar menu burger */
+    .tagline { font-size: 0.7rem !important; }
+    .hero-content h1 { font-size: 1.8rem !important; }
 }
