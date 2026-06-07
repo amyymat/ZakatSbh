@@ -301,93 +301,91 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
 .footer-copyright { color: #bdc3c7; font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 /* =========================================================================
-   11. RESPONSIVE / MUDAH ALIH (VERSI MASTER FIX - ANTI OVERFLOW & ANTI DRAG)
+   11. RESPONSIVE / MUDAH ALIH (VERSI ANTI-DRAG & ANTI-OVERFLOW)
    ========================================================================= */
 @media (max-width: 1024px) {
     .cards-container, .verdict-container, .team-container { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    /* ANTI-DRAG: Mengunci pelayar web telefon daripada bocor ke kanan */
+    /* SEKAT OVERFLOW: Menghalang elemen melimpah keluar dari skrin telefon */
     body, html {
         overflow-x: hidden !important;
         width: 100% !important;
-        max-width: 100% !important;
     }
 
     header {
-        position: fixed !important;
+        position: fixed;
         width: 100% !important;
-        left: 0 !important;
-        top: 0 !important;
-        right: 0 !important;
-        box-sizing: border-box !important;
+        left: 0;
+        top: 0;
+        overflow: hidden; /* Mengunci kandungan dalam header */
     }
 
     nav { 
+        position: relative; 
         width: 100% !important; 
         padding: 1rem 20px !important;
         box-sizing: border-box !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     } 
     
-    /* KUNCI KEDUDUKAN MENU BURGER (DARI SCRIPT.JS) */
+    /* PENYELARASAN BURGER MENU DARI SCRIPT.JS: 
+       Mengunci kedudukan ikon burger di dalam padding nav, bukan di luar skrin */
     #mobile-menu {
         display: block !important;
         position: absolute !important;
-        right: 20px !important; /* Kekal di dalam margin skrin kanan */
+        right: 20px !important; /* Kekal selari di penjuru kanan */
         top: 50% !important;
         transform: translateY(-50%) !important;
         z-index: 1005 !important;
         background: #ffffff !important;
-        padding: 6px 12px !important;
-        border-radius: 8px !important;
-        border: 1px solid #ddd !important;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
+        padding: 4px 10px !important;
+        border-radius: 6px !important;
+        border: 1px solid #e0e0e0 !important;
     }
 
-    /* Penyusunan Semula Grid untuk Skrin Kecil */
-    .cards-container, .verdict-container, .team-container { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-    .team-container { grid-template-columns: 1fr !important; text-align: center; }
-    #kalkulator-form { padding: 1.5rem !important; }
-    .hero-content h1 { font-size: 2.5rem !important; }
-    .flex-title-button { flex-direction: column !important; align-items: flex-start !important; }
+    .cards-container, .verdict-container, .team-container { grid-template-columns: 1fr; }
+    #kalkulator-form { padding: 1.5rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .flex-title-button { flex-direction: column; align-items: flex-start; }
     
-    /* FIX MENU LACI: Menggunakan 'transform' dan 'visibility' agar tidak menolak skrin web */
+    /* MENU LACI (DRAWER) FIXED:
+       Gunakan 'visibility' dan 'transform' supaya tidak dikesan oleh skrin telefon semasa ditutup */
     .nav-links {
         position: fixed !important; 
-        top: 70px !important; 
-        right: 0 !important; 
-        width: 260px !important; 
-        height: calc(100vh - 70px) !important;
-        background-color: #ffffff !important; 
-        flex-direction: column !important; 
-        justify-content: flex-start !important; 
-        padding-top: 2rem !important;
-        box-shadow: -8px 0 20px rgba(0,0,0,0.1) !important; 
-        z-index: 1004 !important;
-        gap: 0 !important;
+        top: 70px; 
+        right: 0; 
+        width: 260px; 
+        height: calc(100vh - 70px);
+        background-color: #ffffff; 
+        flex-direction: column; 
+        justify-content: flex-start; 
+        padding-top: 2rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1); 
+        z-index: 1004;
         
-        /* Keadaan Sedia Ada (Menyorok dengan selamat tanpa bocor) */
-        transform: translateX(100%) !important;
-        visibility: hidden !important;
-        transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
+        /* Keadaan asal: disembunyikan dan ditolak keluar secara visual tanpa mengacau lebar skrin */
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
     }
 
-    /* Keadaan apabila menu dibuka (Aktif) */
+    /* Keadaan aktif: Menu meluncur masuk dengan selamat */
     .nav-links.nav-active { 
-        transform: translateX(0) !important;
-        visibility: visible !important;
+        transform: translateX(0);
+        visibility: visible;
     }
 
-    .nav-links li { width: 100% !important; text-align: center !important; margin-bottom: 1.5rem !important; }
-    .nav-links a { display: block !important; padding: 10px !important; color: var(--dark-blue) !important; font-size: 1rem !important; }
+    .nav-links li { width: 100%; text-align: center; margin-bottom: 1.5rem; }
+    .nav-links a { display: block; padding: 10px; color: var(--dark-blue); font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
-    .site-name { font-size: 1.4rem !important; }
-    .tagline { font-size: 0.75rem !important; }
-    .hero-content h1 { font-size: 2rem !important; }
+    .site-name { font-size: 1.4rem; }
+    .tagline { font-size: 0.75rem; }
+    .hero-content h1 { font-size: 2rem; }
 }
