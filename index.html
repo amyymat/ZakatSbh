@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/ZakatSbh/style.css">
+    <link rel="stylesheet" href="style.css">
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -21,7 +21,7 @@
                 <span class="site-name">ZAKAT SABAH</span>
                 <span class="tagline">Panduan Fiqh Zakat</span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#concepts">CONCEPTS</a></li>
                 <li><a href="#issues">CURRENT ISSUES</a></li>
@@ -33,58 +33,95 @@
     </header>
 
     <main>
-        <section id="home">
-            <h1>ZAKAT & FIQH</h1>
-            <p>PANDUAN KOMPREHENSIVE UNTUK CABARAN MODERN DI SABAH</p>
-            <div class="hero-buttons">
-                <a href="#concepts" class="btn">Ketahui Lebih Lanjut</a>
-                <a href="#calculator" class="btn btn-premium" style="cursor: pointer; position: relative; z-index: 20;">Kira Zakat Sekarang</a>
+        <section id="home" class="hero-bg">
+            <div class="hero-content">
+                <h1>FIQH ZAKAT</h1>
+                <p>PANDUAN KOMPREHENSIF UNTUK CABARAN MODEN DI SABAH</p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-premium-outline">KIRA ZAKAT SEKARANG</a>
+                </div>
+                <p class="credit">Dibangunkan oleh <span class="soh-text">S.O.H</span></p>
             </div>
-            <p class="credit">Dibangunkan oleh <strong>S.O.H</strong></p>
         </section>
 
         <section id="concepts">
-            <h2>Our Mission: Islamic Fundamentals</h2>
+            <h2>Misi Kami: Asas Fiqh Islam</h2>
             <h3>KONSEP ASAS, RUKUN, DAN SYARAT WAJIB ZAKAT</h3>
             
             <div class="cards-container">
                 <div class="card" id="definisi-zakat">
-                    <h4>DEFINISI ZAKAT</h4>
-                    <p>Bahasa: Berasal daripada perkataan Zaka yang bermaksud suci, tumbuh, berkat, dan terpuji. Istilah: Mengeluarkan sebahagian harta tertentu untuk diberikan kepada golongan tertentu (Asnaf)...</p>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1609599006353-e629aaab31ce?q=80&w=600" alt="Al-Quran">
+                        <div class="card-number">1</div>
+                    </div>
+                    <div class="card-content">
+                        <h4>DEFINISI ZAKAT</h4>
+                        <p><strong>Bahasa:</strong> Berasal daripada perkataan Zaka yang bermaksud suci, tumbuh, berkat, dan terpuji.<br><br><strong>Istilah:</strong> Mengeluarkan sebahagian harta tertentu untuk diberikan kepada golongan tertentu (Asnaf) dengan syarat-syarat yang telah ditetapkan oleh syarak.</p>
+                    </div>
                 </div>
+
                 <div class="card" id="rukun-zakat">
-                    <h4>RUKUN ZAKAT</h4>
-                    <p>Terdapat empat rukun utama: 1) Pemberi Zakat (Muzakki), 2) Harta Zakat (Mal), 3) Penerima Zakat (Asnaf), 4) Niat.</p>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=600" alt="Masjid">
+                        <div class="card-number">2</div>
+                    </div>
+                    <div class="card-content">
+                        <h4>RUKUN ZAKAT</h4>
+                        <ol class="custom-list">
+                            <li><strong>Pemberi Zakat:</strong> Individu yang memenuhi kriteria.</li>
+                            <li><strong>Harta Zakat:</strong> Harta yang wajib dizakatkan.</li>
+                            <li><strong>Penerima:</strong> 8 golongan asnaf (At-Taubah: 60).</li>
+                            <li><strong>Niat:</strong> Membezakan ibadah dengan pemberian biasa.</li>
+                        </ol>
+                    </div>
                 </div>
+
                 <div class="card" id="syarat-wajib-zakat">
-                    <h4>SYARAT WAJIB ZAKAT</h4>
-                    <p>Kriteria untuk mewajibkan zakat: 1) Islam, 2) Merdeka, 3) Milik Sempurna, 4) Cukup Nisab (paras minimum harta setara 85g emas), 5) Cukup Haul.</p>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552858725-2758b5fb1286?q=80&w=600" alt="Keluarga Muslim">
+                        <div class="card-number">3</div>
+                    </div>
+                    <div class="card-content">
+                        <h4>SYARAT WAJIB ZAKAT</h4>
+                        <ul class="custom-list">
+                            <li><strong>Islam:</strong> Diwajibkan ke atas Muslim.</li>
+                            <li><strong>Merdeka:</strong> Bukan hamba sahaya.</li>
+                            <li><strong>Milik Sempurna:</strong> Harta di bawah kawalan penuh.</li>
+                            <li><strong>Cukup Nisab:</strong> Nilai minimum (85g emas).</li>
+                            <li><strong>Cukup Haul:</strong> Pemilikan genap setahun Hijriah.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="issues">
-            <h2>Modern Issues</h2>
-            <h3>5 ISU SEMASA ZAKAT DI SABAH YANG ANDA PERLU TAHU</h3>
+            <h2 style="color: white;">Modern Issues</h2>
+            <h3 style="color: #bdc3c7;">5 ISU SEMASA ZAKAT DI SABAH YANG ANDA PERLU TAHU</h3>
             
             <div class="issues-list">
                 <div class="issue-item">
+                    <div class="issue-number">1</div>
                     <h4>ZAKAT PENDAPATAN (Mal al-Mustafad)</h4>
                     <p>Kewajipan zakat ke atas gaji, bonus, dan elaun yang menjadi perdebatan hangat, terutama bagi mereka yang menerima pendapatan yang besar dan berterusan.</p>
                 </div>
                 <div class="issue-item">
-                    <h4>E-COMMERCE & DIGITAL ASSETS</h4>
+                    <div class="issue-number">2</div>
+                    <h4>E-COMMERCE & ASET DIGITAL</h4>
                     <p>Status zakat bagi keuntungan daripada perniagaan TikTok Shop, Shopee, kriptowang, dan token digital.</p>
                 </div>
                 <div class="issue-item">
+                    <div class="issue-number">3</div>
                     <h4>ZAKAT WANG SIMPANAN KWSP</h4>
                     <p>Polemik pengeluaran khas KWSP dan bila masanya ia wajib dizakatkan.</p>
                 </div>
                 <div class="issue-item">
+                    <div class="issue-number">4</div>
                     <h4>AGIHAN ZAKAT SECARA LANGSUNG</h4>
                     <p>Isu masyarakat yang memilih untuk memberi zakat terus kepada asnaf tanpa melalui amil bertauliah.</p>
                 </div>
                 <div class="issue-item">
+                    <div class="issue-number">5</div>
                     <h4>PENYUCIAN HARTA (Harta Syubhah)</h4>
                     <p>Bagaimana menguruskan harta daripada sumber yang meragukan, riba, atau pelaburan yang tidak patuh syariah.</p>
                 </div>
@@ -95,32 +132,34 @@
             <h2>Analysis & Verdict: Zakat Pendapatan</h2>
             <h3>ANALISIS FIQH PERBANDINGAN PENDAPATAN PROFESIONAL</h3>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mazhab</th>
-                        <th>Pandangan</th>
-                        <th>Dalil / Hujah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mazhab Syafi'i (Klasik)</td>
-                        <td>Tidak wajib zakat secara langsung pada gaji kecuali jika disimpan sehingga cukup haul dan nisab.</td>
-                        <td>Mengambil hukum asal zakat simpanan yang memerlukan tempoh setahun (Haul).</td>
-                    </tr>
-                    <tr>
-                        <td>Mazhab Maliki, Hanbali, Hanafi (Sebahagian)</td>
-                        <td>Zakat boleh dikenakan sebaik sahaja harta diterima tanpa menunggu haul.</td>
-                        <td><span class="teks-arab">يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ</span> dan terjemahan: "Wahai orang-orang yang beriman, infakkanlah sebahagian hasil usahamu..." (Al-Baqarah: 267)</td>
-                    </tr>
-                    <tr>
-                        <td>Fatwa Kontemporari</td>
-                        <td>Wajib dizakatkan berdasarkan konsep Mal al-Mustafad demi keadilan sosial.</td>
-                        <td>Menqiyaskan pendapatan profesional dengan zakat pertanian (bayar bila tuai).</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mazhab</th>
+                            <th>Pandangan</th>
+                            <th>Dalil / Hujah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mazhab Syafi'i (Klasik)</td>
+                            <td>Tidak wajib zakat secara langsung pada gaji kecuali jika disimpan sehingga cukup haul dan nisab.</td>
+                            <td>Mengambil hukum asal zakat simpanan yang memerlukan tempoh setahun (Haul).</td>
+                        </tr>
+                        <tr>
+                            <td>Mazhab Maliki, Hanbali, Hanafi (Sebahagian)</td>
+                            <td>Zakat boleh dikenakan sebaik sahaja harta diterima tanpa menunggu haul.</td>
+                            <td><span class="teks-arab">يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ</span><br>Terjemahan: "Wahai orang-orang yang beriman, infakkanlah sebahagian hasil usahamu..." (Al-Baqarah: 267)</td>
+                        </tr>
+                        <tr>
+                            <td>Fatwa Kontemporari</td>
+                            <td>Wajib dizakatkan berdasarkan konsep Mal al-Mustafad demi keadilan sosial.</td>
+                            <td>Menqiyaskan pendapatan profesional dengan zakat pertanian (bayar bila tuai).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section id="verdict">
@@ -146,47 +185,82 @@
             <h2>Elemen Inovasi: Kalkulator Zakat Premium</h2>
             <h3>FORMULA MODERN & HAD KIFAYAH SABAH</h3>
             
-            <div class="mathjax-formula">
-                $$Zakat=(Pendapatan\:Kasar-Perbelanjaan\:Dibenarkan\:(Had\:Kifayah))\times2.5\%$$
+            <div class="formula-box">
+                <h4 style="text-align: center; color: var(--dark-blue); margin-bottom: 10px;">Formula Asas</h4>
+                <div class="mathjax-formula">
+                    $$Zakat=(Pendapatan\:Kasar-Perbelanjaan\:Dibenarkan\:(Had\:Kifayah))\times2.5\%$$
+                </div>
             </div>
 
             <form id="kalkulator-form">
+                
+                <div style="text-align: right; margin-bottom: 20px;">
+                    <button type="button" class="btn-text-link" onclick="bukaModal('modal-tutorial')">Cara Guna Kalkulator ℹ️</button>
+                </div>
+
+                <h4 class="form-section-title">PENDAPATAN (SILA ISIKAN JUMLAH TAHUNAN)</h4>
+                
                 <div class="form-group">
-                    <label for="pendapatan-bulanan">Pendapatan Bulanan: (Gaji Pokok + Elaun Tetap)</label>
-                    <input type="number" id="pendapatan-bulanan" name="pendapatan-bulanan">
+                    <label for="pendapatan-bulanan">Pendapatan Tahunan: (Gaji Pokok + Elaun Tetap x 12)</label>
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="pendapatan-bulanan" name="pendapatan-bulanan" placeholder="Sila masukkan jumlah gaji setahun">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="pendapatan-sampingan">Pendapatan Sampingan: (Bonus/Freelance/Sewa)</label>
-                    <input type="number" id="pendapatan-sampingan" name="pendapatan-sampingan">
+                    <label for="pendapatan-sampingan">Pendapatan Sampingan: (Bonus/Freelance/Sewa Tahunan)</label>
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="pendapatan-sampingan" name="pendapatan-sampingan" placeholder="Sila masukkan jumlah sampingan">
+                    </div>
                 </div>
+
+                <div class="flex-title-button">
+                    <h4 class="form-section-title">TOLAKAN (HAD KIFAYAH MUIS - SETAHUN)</h4>
+                    <button type="button" class="btn-text-link" onclick="bukaModal('modal-kifayah')">Apa itu Had Kifayah? ℹ️</button>
+                </div>
+
                 <div class="form-group">
                     <label for="diri-sendiri">Diri Sendiri (Contoh: RM9,000)</label>
-                    <input type="number" id="diri-sendiri" name="diri-sendiri">
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="diri-sendiri" name="diri-sendiri" placeholder="9000">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="isteri">Isteri (Contoh: RM3,000/seorang)</label>
-                    <input type="number" id="isteri" name="isteri">
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="isteri" name="isteri" placeholder="3000">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="anak">Anak (Contoh: RM1,500/seorang)</label>
-                    <input type="number" id="anak" name="anak">
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="anak" name="anak" placeholder="1500">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="kwsp">Caruman KWSP (11% setahun)</label>
-                    <input type="number" id="kwsp" name="kwsp">
-                </div>
-                <div class="form-group">
-                    <label for="nisab">Nisab (Berdasarkan 85g emas di Sabah)</label>
-                    <input type="number" id="nisab" name="nisab">
+                    <div class="input-wrapper">
+                        <span class="currency-tag">RM</span>
+                        <input type="number" id="kwsp" name="kwsp" placeholder="0">
+                    </div>
                 </div>
                 
-                <button type="submit">Kira Zakat Premium</button>
+                <div style="margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 20px;">
+                    <div class="form-group">
+                        <label for="nisab">Nisab Semasa (Berdasarkan 85g emas di Sabah)</label>
+                        <div class="input-wrapper">
+                            <span class="currency-tag">RM</span>
+                            <input type="number" id="nisab" name="nisab" value="24000">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-calculate-main">Kira Zakat Premium</button>
             </form>
-
-            <div class="kalkulator-actions">
-                <button type="button" onclick="bukaModal('modal-kifayah')">Apa itu Had Kifayah?</button>
-                <button type="button" onclick="bukaModal('modal-tutorial')">Cara Guna Kalkulator</button>
-            </div>
         </section>
 
         <section id="about">
@@ -194,10 +268,16 @@
             <h3>KUMPULAN S.O.H DAN SUMBER MAKLUMAT KAMI</h3>
             
             <div class="team-container">
-                <h4>Pasukan Kami: S.O.H</h4>
-                <p>Inovasi ini dibangunkan bagi tugasan AI40503 Fiqh Perbandingan.</p>
-                <div style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
-                    </div>
+                <div class="team-info">
+                    <h4>Pasukan Kami: S.O.H</h4>
+                    <p>Inovasi platform web ini dibangunkan dengan teliti bagi memenuhi spesifikasi tugasan kursus AI40503 Fiqh Perbandingan di Universiti Malaysia Sabah.</p>
+                    
+                    <a href="LINK_PORTFOLIO_ANDA_DI_SINI" target="_blank" class="btn-portfolio">Lihat Portfolio Projek Kami 🚀</a>
+                </div>
+                
+                <div class="team-image-box">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" alt="Kumpulan S.O.H" class="group-photo">
+                </div>
             </div>
 
             <div class="references-container">
@@ -215,11 +295,15 @@
             <div class="modal-content">
                 <h4>Apa itu Had Kifayah?</h4>
                 <p>Had Kifayah adalah kadar keperluan asas minimum (garis kemiskinan) yang ditetapkan oleh Majlis Ugama Islam Sabah (MUIS) untuk menyara diri dan keluarga. Ia adalah tolakan yang dibenarkan dari pendapatan kasar sebelum pengiraan zakat.</p>
-                <p>Contoh Had Kifayah MUIS Sabah (2024/2025):</p>
-                <p>Diri Sendiri: RM9,000 (setahun)</p>
-                <p>Isteri: RM3,000/seorang (setahun)</p>
-                <p>Anak: RM1,500/seorang (setahun)</p>
-                <p>KWSP: 11% dari gaji (caruman penjaga)</p>
+                <div style="background: #f4f7f6; padding: 15px; border-radius: 10px; margin: 15px 0;">
+                    <p><strong>Contoh Had Kifayah MUIS Sabah (2024/2025):</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Diri Sendiri: RM9,000 (setahun)</li>
+                        <li>Isteri: RM3,000/seorang (setahun)</li>
+                        <li>Anak: RM1,500/seorang (setahun)</li>
+                        <li>KWSP: 11% dari gaji (caruman penjaga)</li>
+                    </ul>
+                </div>
                 <p><em>*Nota: Sila semak dengan pihak bertauliah untuk nilai terkini, kerana ia berubah mengikut kos sara hidup.</em></p>
             </div>
         </div>
@@ -227,11 +311,13 @@
         <div id="modal-tutorial" class="modal" style="display: none;">
             <div class="modal-content">
                 <h4>Tutorial Menggunakan Kalkulator</h4>
-                <p>Langkah 1: Masukkan Gaji Pokok Sebulan di bawah seksyen PENDAPATAN. Sistem kami akan mendarabkannya kepada 12 bulan secara automatik.</p>
-                <p>Langkah 2: Masukkan Pendapatan Sampingan (Bonus/Sewa/Freelance). Sila masukkan jumlah TAHUNAN. Tinggalkan 0 jika tiada.</p>
-                <p>Langkah 3: Isikan nilai tolakan Had Kifayah anda di bawah seksyen TOLAKAN mengikut tanggungan. (Cth: Jika bujang, isikan hanya diri sendiri dan KWSP).</p>
-                <p>Langkah 4: Semak nilai Nisab (Minimum harta wajib zakat). Nilai default adalah RM24,000 berdasarkan 85g emas semasa.</p>
-                <p>Langkah 5: Tekan butang Kira Zakat Premium untuk melihat keputusan (Wajib/Tidak) berserta jumlah.</p>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li>Masukkan Gaji Pokok Sebulan di bawah seksyen PENDAPATAN. Sistem kami akan mendarabkannya kepada 12 bulan secara automatik.</li>
+                    <li>Masukkan Pendapatan Sampingan (Bonus/Sewa/Freelance). Sila masukkan jumlah TAHUNAN. Tinggalkan 0 jika tiada.</li>
+                    <li>Isikan nilai tolakan Had Kifayah anda di bawah seksyen TOLAKAN mengikut tanggungan. (Cth: Jika bujang, isikan hanya diri sendiri dan KWSP).</li>
+                    <li>Semak nilai Nisab (Minimum harta wajib zakat). Nilai default adalah RM24,000 berdasarkan 85g emas semasa.</li>
+                    <li>Tekan butang Kira Zakat Premium untuk melihat keputusan (Wajib/Tidak) berserta jumlah.</li>
+                </ol>
             </div>
         </div>
 
