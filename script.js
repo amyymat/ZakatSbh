@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                              `📊 RINGKASAN:\n` +
                              `Pendapatan bersih anda berada di bawah Had Kifayah (keperluan asas) MUIS.`;
             }
-           // Tukar warna teks di dalam script.js daripada teal kepada warna gelap tulisan/border
-mobileMenu.style.color = '#23485E';
+              alert(mesejAlert);
+        });
+    }
 });
