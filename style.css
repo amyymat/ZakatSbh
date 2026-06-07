@@ -319,13 +319,35 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
 .footer-copyright { color: #bdc3c7; font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 /* =========================================================================
-   11. RESPONSIVE / MUDAH ALIH
+   11. RESPONSIVE / MUDAH ALIH (VERSI FIX MUTAKHIR - MENU BURGER HP)
    ========================================================================= */
 @media (max-width: 1024px) {
     .cards-container, .verdict-container, .team-container { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
+    /* Menyediakan konteks kedudukan relatif untuk menu navigasi mudah alih */
+    nav { 
+        position: relative; 
+        width: 100%; 
+        padding: 1rem 20px;
+    } 
+    
+    /* FIX MENU BURGER: Mengunci kedudukan butang di penjuru kanan supaya tidak bertindih dengan logo */
+    #mobile-menu {
+        display: block !important;
+        position: absolute !important;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1005; /* Memaksa ikon sentiasa berada di lapisan teratas sekali */
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4px 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
     .cards-container, .verdict-container, .team-container { grid-template-columns: 1fr; }
     #kalkulator-form { padding: 1.5rem; }
     .hero-content h1 { font-size: 2.8rem; }
@@ -333,11 +355,35 @@ footer { background-color: var(--dark-blue); color: #fff; text-align: center; pa
     .calculator-actions-row { justify-content: center; gap: 10px; }
     .btn-text-link { width: 100%; text-align: center; }
     
+    /* Menu laci (drawer) yang meluncur keluar dari sebelah kanan */
     .nav-links {
-        position: fixed; top: 70px; right: -100%; width: 250px; height: calc(100vh - 70px);
-        background-color: #fff; flex-direction: column; justify-content: flex-start; padding-top: 2rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s ease;
+        position: fixed; 
+        top: 95px; /* Selari dengan bahagian bawah header baharu */
+        right: -100%; 
+        width: 260px; 
+        height: calc(100vh - 95px);
+        background-color: #ffffff; 
+        flex-direction: column; 
+        justify-content: flex-start; 
+        padding-top: 2rem;
+        box-shadow: -8px 0 20px rgba(0,0,0,0.15); 
+        transition: right 0.4s ease-in-out;
+        z-index: 1004;
     }
     .nav-links.nav-active { right: 0; }
     .nav-links li { width: 100%; text-align: center; margin-bottom: 1.5rem; }
+    .nav-links a { display: block; padding: 10px; color: var(--dark-blue); font-size: 1rem; }
+}
+
+/* KEMASAN KHAS: Untuk skrin telefon yang sangat kecil (Contoh: iPhone SE / Android Kecil) */
+@media (max-width: 480px) {
+    .zakat-soh-retro {
+        font-size: 1.4rem; /* Mengecilkan skala tulisan logo retro agar muat dengan harmoni tanpa melanggar butang menu */
+    }
+    .tagline {
+        font-size: 0.75rem;
+    }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-quran-arabic { font-size: 1.3rem; line-height: 1.8; }
+    .hero-quran-translation { font-size: 0.95rem; }
 }
